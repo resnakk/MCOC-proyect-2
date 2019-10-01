@@ -9,8 +9,11 @@ _kg = 1.
 #perfil logaritmico de velocidad en x
 xi = array([0., 2.1*_mm], dtype = double) #posicion actual 
 k = 0.41
-def vx(y0):
-	return 5*log(3*y0)/k
+def vx(y0,v0,yi):
+	if y0 < 1:
+		return 2.8*(yi - y0) + v0
+	else:
+		return v0*log(3*y0)/k
 vf = array([5.,0]) #m/s 
 vi = array([0., 0.], dtype = double) #velocidad actual
 
@@ -37,9 +40,10 @@ x_store = []
 y_store = []
 v_store = []
 
+y_anterior = xi[1]
 while ti < tmax:
-		
-	
+	u = vx(y_anterior, vf[0], xi[1])	
+	vf[0] = u
 	
 	if xi[1] <= d/2:
 		vi[1] = -vi[1]
@@ -64,7 +68,8 @@ while ti < tmax:
 	y_store.append(xi[1])
 	v_store.append(vi)
 	#print vi
-	
+	if dt > 0:
+		y_anterior = xi[1]
 	ti += dt
 	xi = xim1
 	vi = vim1
