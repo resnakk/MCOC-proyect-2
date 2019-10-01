@@ -50,5 +50,5 @@ Eje y: Se tienen dos fuerzas que afectan a la partícula, la gravedad y bouyancy
 Resultados.
 ===========
 
-![Results](figure1.png)
-![Results](figure12.png)
+![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/figure_1.png)
+![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/figure_12.png)
