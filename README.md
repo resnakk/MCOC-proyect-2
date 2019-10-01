@@ -8,6 +8,7 @@ Mauricio Sánchez
 ```
 
 Introducción.
+=============
 
 En este proyecto se busca desarrollar un programa que permita mostrar el movimiento de una partícula a través de un flujo continuo.
 
@@ -17,6 +18,7 @@ Actualmente, el desarrollo de este programa está siendo estudiado por ingeniero
 
 
 Planteamiento.
+==============
 
 En este proyecto se trabaja para lograr una correcta anticipación del comportamiento de una partícula que se mueve en dos dimensiones, siendo estas el eje x y el eje y.
 
@@ -36,9 +38,17 @@ Para poder empezar a trabajar en un código que nos permita predecir el movimien
 
 Una vez considerado estos puntos se puede proceder ver el movimiento que posee la partícula. Para esto se necesita estudiar las fuerzas que afectan a la partícula, las cuales se separan dependiendo del eje en el que actuan.
 
+
 Fuerzas.
+========
 
 Eje x: Sólo existe una fuerza que afecta a la partícula, la cual es Drag Force. Al ser la única fuerza en esta dirección, marca la velocidad que tiene en este plano.
 
 Eje y: Se tienen dos fuerzas que afectan a la partícula, la gravedad y bouyancy force. Al existir dos fuerzas en esta dirección, la velocidad que tendrá la partícula es el resultado de la suma de ambas fuerzas.
 
+
+Resultados.
+===========
+
+![Results](figure1.png)
+![Results](figure12.png)
