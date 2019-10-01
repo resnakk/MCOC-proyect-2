@@ -34,8 +34,6 @@ Para poder empezar a trabajar en un código que nos permita predecir el movimien
 
 	5.- Esta partícula es sometida a fuerzas continuas en ambos ejes que determinarán su comportamiento.
 
-	6.- Debido a la interacción con fuerzas externas, además de la velocidad en el eje x e y, la partícula posee velocidad angular.
-
 Una vez considerado estos puntos se puede proceder ver el movimiento que posee la partícula. Para esto se necesita estudiar las fuerzas que afectan a la partícula, las cuales se separan dependiendo del eje en el que actuan.
 
 
