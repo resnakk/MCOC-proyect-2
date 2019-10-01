@@ -37,7 +37,7 @@ Para poder empezar a trabajar en un código que nos permita predecir el movimien
 	6.- El flujo se rige por un perfil logarítmico, el cual se basa en la ley de von Kárnmán-Prandtl.
 
 La velocidad según la ley de von Kárnmán-Prandtl sigue el siguiente comportamiento:
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/figure_13.jpeg)
+https://github.com/resnakk/MCOC-proyect-2/blob/master/figure_13.jpeg
 
 Una vez considerado estos puntos se puede proceder ver el movimiento que posee la partícula. Para esto se necesita estudiar las fuerzas que afectan a la partícula, las cuales se separan dependiendo del eje en el que actuan.
 
