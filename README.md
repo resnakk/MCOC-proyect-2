@@ -52,3 +52,11 @@ Resultados.
 
 ![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/figure_1.png)
 ![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/figure_12.png)
+
+
+Comentarios.
+============
+
+La primera imagen muestra el movimiento de la partícula, el cual es agrandado en la imagen siguiente para que se pueda apreciar de mejor manera el movimiento parabólico que esta posee.
+
+Se puede apreciar que la partícula posee velocidad tanto en el eje x como y, observandose que la velocidad en el eje x no sufre cambios aparente. En cambio, se puede ver que después de cada rebote la altura que alcanza la partícula es menor, lo que provoca que cada salto que haga sea menor que el anterior. Este es el comportamiento que se espera de la partícula
