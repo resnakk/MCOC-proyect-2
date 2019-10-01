@@ -7,7 +7,7 @@ _s = 1.
 _kg = 1.
 
 #perfil logaritmico de velocidad en x
-xi = array([0., 2.1*_mm], dtype = double) #posicion actual
+xi = array([0., 2.1*_mm], dtype = double) #posicion actual 
 k = 0.41
 def vx(y0):
 	return 5*log(3*y0)/k
