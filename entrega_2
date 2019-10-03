@@ -102,7 +102,7 @@ ylabel("Y")
 title("Trayectoria de particula")
 for i in range(n_particulas):
 	plot(x_p["xp_{}".format(i + 1)], y_p["yp_{}".format(i + 1)])
-#plot(x_p["xp_1"], y_p["yp_1"])
+
 
 show()
 

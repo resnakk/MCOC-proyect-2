@@ -45,7 +45,7 @@ m_w = rho_w*pi*(d**3)*(4./3./8.)
 Cd = 0.47 #particula redonda
 #Euler en en x0
 dt = 1e-6*_s  #paso de tiempo
-tmax = 1 #tiempo maximo de simulacion
+tmax = 0.2 #tiempo maximo de simulacion
 ti = 0. #tiempo actual 
 W = array([0, -m*g])
 
@@ -70,7 +70,7 @@ while ti < tmax:
 		#print vf, v_particulas[i]
 		vrel = vf - v_particulas[i]
 		norm_vrel = norm(vrel)
-		print vrel
+		print norm_vrel
 
 		#evaluar fuerzas sobre la particula
 		Fd = 0.5*Cd*norm_vrel*vrel #Drag force
