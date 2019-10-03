@@ -71,7 +71,7 @@ while ti < tmax: #Se recorre en cada tiempo para todas las partículas
 
         x_particula_i = "xp_{}".format(i + 1) #Asigna los nombres de la particula en x
         y_particula_i = "yp_{}".format(i + 1) #Asigna los nombres de la particula en y
-        u = vx(y_inicial[i], vf[0], x_particulas[i][1]) #Actualiza la velocidad en y de cada partícula. El primer y el último parámetro son iguales
+        u = vx(y_inicial[i], vf[0], x_particulas[i][1]) #Actualiza la velocidad en y de cada partícula.
         vf[0] = u #guarda la velocidad para usarla en el próximo ciclo
 
         if x_particulas[i][1] <= d/2: #Se asegura que la particula no llegue al piso
@@ -90,9 +90,10 @@ while ti < tmax: #Se recorre en cada tiempo para todas las partículas
         #evaluar aceleracion
         ai = Fi / m
         #integrar
-        xim1 = x_particulas[i] + v_particulas[i]*dt + ai*(dt**2)/2
-        vim1 = v_particulas[i] + ai*dt
+        xim1 = x_particulas[i] + v_particulas[i]*dt + ai*(dt**2)/2 #revisar
+        vim1 = v_particulas[i] + ai*dt #revisar
         #siguiente paso
+        
         prueba = x_p.get(x_particula_i) + [x_particulas[i][0]]
         x_p[x_particula_i] = prueba
 
