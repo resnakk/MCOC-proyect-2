@@ -6,36 +6,7 @@ _mm = _m*1e-3
 _gr = 1e-3
 _s = 1.
 _kg = 1.
-
-k = 0.41
-#perfil logaritmico de velocidad en x
-def vx(y0,yi):
-	if y0 < 1:
-		return 2.8*(yi - y0) + 5
-	else:
-		return 5*log(3*y0)/k
-#Condiciones Iniciales
-n_particulas = 5 #Numero de particulas
-x_particulas = []
-v_particulas = []
-vf = array([5**_m/_s,0])  
-x_p = []
-y_p = []
-for i in range(n_particulas): 
-	x_p.append([])
-	y_p.append([])
-	v_x = 0
-	v_y = 0
-	p_x = 5*random.random()
-	p_y = 5*random.random()
-	
-	xi = array([p_x,p_y])
-	vi = array([v_x,v_y])
-
-	x_particulas.append(xi)
-	v_particulas.append(vi)
-	
-
+#Datos
 d = 2*_mm
 g = 9.81*_m/_s**2
 rho = 2700*_kg/(_m**3)
@@ -45,9 +16,38 @@ m_w = rho_w*pi*(d**3)*(4./3./8.)
 Cd = 0.47 #particula redonda
 #Euler en en x0
 dt = 1e-6*_s  #paso de tiempo
-tmax = 0.2 #tiempo maximo de simulacion
+tmax = 1 #tiempo maximo de simulacion
 ti = 0. #tiempo actual 
 W = array([0, -m*g])
+#perfil logaritmico de velocidad en x
+k = 0.41
+def vx(y0,yi):
+	
+	return -log(30*y0)/k
+#Condiciones Iniciales
+n_particulas = 5 #Numero de particulas
+vf = array([5*_m*_s,0])
+#historial de las particulas
+x_particulas = []
+v_particulas = [] 
+x_p = []
+y_p = []
+for i in range(n_particulas): 
+	x_p.append([])
+	y_p.append([])
+	v_x = 0
+	v_y = 0
+	p_x = (d)*random.random() + d
+	p_y = (d)*random.random() + d
+	
+	xi = array([p_x,p_y])
+	vi = array([v_x,v_y])
+
+	x_particulas.append(xi)
+	v_particulas.append(vi)
+	
+
+
 
 xim1 = []
 vim1 = []
@@ -70,10 +70,10 @@ while ti < tmax:
 		#print vf, v_particulas[i]
 		vrel = vf - v_particulas[i]
 		norm_vrel = norm(vrel)
-		print norm_vrel
 
 		#evaluar fuerzas sobre la particula
 		Fd = 0.5*Cd*norm_vrel*vrel #Drag force
+
 		Fb = array([0.,m_w*g]) #Bouyancy force
 		#print Fd
 		Fi = W + Fd + Fb
