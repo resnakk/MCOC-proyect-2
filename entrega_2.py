@@ -22,7 +22,6 @@ W = array([0, -m*g])
 #perfil logaritmico de velocidad en x
 k = 0.41
 def vx(y0,yi):
-	
 	return -log(30*y0)/k
 #Condiciones Iniciales
 n_particulas = 5 #Numero de particulas
@@ -39,20 +38,13 @@ for i in range(n_particulas):
 	v_y = 0
 	p_x = (d)*random.random() + d
 	p_y = (d)*random.random() + d
-	
 	xi = array([p_x,p_y])
 	vi = array([v_x,v_y])
-
 	x_particulas.append(xi)
 	v_particulas.append(vi)
-	
-
-
-
+#Iteracion en el tiempo	
 xim1 = []
 vim1 = []
-
-
 while ti < tmax:
 	for i in range(n_particulas):
 		if dt == 0:
@@ -91,6 +83,7 @@ while ti < tmax:
 		y_p[i].append(x_particulas[i][1])
 		x_particulas[i] = xim1
 		v_particulas[i] = vim1
+#Ploteo de las trayectorias
 xlabel("X")
 ylabel("Y")
 title("Trayectoria de particula")
