@@ -13,10 +13,11 @@ rho = 2700*_kg/(_m**3)
 rho_w = 1000*_kg/(_m**3)
 m = rho*pi*(d**3)*(4./3./8.)
 m_w = rho_w*pi*(d**3)*(4./3./8.)
-Cd = 0.47 #particula redonda
+Cd = 0.47 #drag coefficient
+Cvm = 0.5 #virtual mass coefficient
 #Euler en en x0
 dt = 1e-6*_s  #paso de tiempo
-tmax = 2#tiempo maximo de simulacion
+tmax = 3.5#tiempo maximo de simulacion
 ti = 0. #tiempo actual 
 W = array([0, -m*g])
 #perfil logaritmico de velocidad en x
@@ -24,14 +25,15 @@ k = 0.41
 
 def vx(y0,yi,v0):
 	if y0 < 1:
-		v0 = -log(30*y0)/k
 		return 2.8*(yi - y0) + v0
 	else:
-		return v0*log(30*y0)/k
+		return log(30*yi)/k
+
+
 #Condiciones Iniciales
 n_particulas = 5 #Numero de particulas
 a_rio = 11*_mm
-vf = array([1*_mm*_s,0])
+vf = array([250*_mm*_s,0])
 #historial de las particulas
 x_particulas = []
 v_particulas = [] 
@@ -41,27 +43,27 @@ for i in range(n_particulas):
 	valor = a_rio/n_particulas
 	x_p.append([])
 	y_p.append([])
-	v_x = 0 #random.random()*random.randint(-2,2)
-	v_y = 0 #random.random()*random.randint(-2,2)
-	p_x = 0.
+	v_x = random.random()*random.randint(0,5)
+	v_y = random.random()*random.randint(-2,10)
+	p_x = 0. #random.random()*0.004
 	p_y = (valor*(i+1)) + d 
 	xi = array([p_x,p_y])
 	print xi
 	vi = array([v_x,v_y])
 	x_particulas.append(xi)
 	v_particulas.append(vi)
+
+print v_particulas
 #Iteracion en el tiempo	
 xim1 = []
 vim1 = []
 while ti < tmax:
 	for i in range(n_particulas):
 		#Evaluando flujo del rio
-		if dt == 0:
-			u = vx(x_particulas[i][1],x_particulas[i][1],vf[0])	
-			vf[0] = u
-		else:
-			u = vx(x_particulas[i - 1][1], x_particulas[i][1],vf[0])	
-			vf[0] = u
+		u1 = array([vx(x_particulas[i - 1][1],x_particulas[i][1],vf[0]), 0])
+		u0 = vf	
+		vf[0] = u1[0]
+
 		#Condicion de choque entre particulas
 		for t in range(n_particulas):
 			if i == t:
@@ -91,8 +93,8 @@ while ti < tmax:
 		#evaluar fuerzas sobre la particula
 		Fd = 0.5*Cd*norm_vrel*vrel #Drag force
 		Fb = array([0.,m_w*g]) #Bouyancy force
-
-		Fi = W + Fd + Fb
+		Fvm = Cvm*(u1 - u0)/dt #Virtual mass force Fvmc
+		Fi = W + Fd + Fb + Fvm
 		#evaluar aceleracion
 		ai = Fi / m
 		#integrar
@@ -107,12 +109,14 @@ while ti < tmax:
 		x_particulas[i] = xim1
 		v_particulas[i] = vim1
 #Ploteo de las trayectorias
+print v_particulas
 xlabel("X")
 ylabel("Y")
 title("Trayectoria de particula")
 for i in range(n_particulas):
 	plot(x_p[i], y_p[i])
 show()
+#savefig("figura.png")
 
 
 
