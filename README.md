@@ -1,22 +1,19 @@
-# MCOC-proyect-2
-Integrantes:
-=============
+#README Mauricio Sánchez
+
+El presente trabajo busca modelar mediante un método lagrangiano el transporte de sedimentos en canales de agua de flujo continuo, no turbulento, principalmente de arenas finas y gravas. Sumado a lo anterior, el segundo foco de este proyecto, es estudiar como influye la decisión del algoritmo a implementar, y como varía su rendimiento a medida que se le exige más al modelo.
+
+Para la realización de este modelo se consideraron varios supuestos de tal manera que fuera valido: 
 ```
-Tomás García
-Javier Marín
-Mauricio Sánchez
+	1.- Se consideró que todas las particulas son identicas, y tienen un diametro de 2 mm, puesto que este diametro diferencia a las arenas finas de las gruesas.
+	2.- El modelo esta pensado para particulas esféricas perfectas, sin dar a alugar a particulas no uniformes. 
+	3.- Todas las particulas son identicas, pero inician sus trayectorias con posiciones y velocidades aleatorias
+	4.- Se asume que el suelo es liso, y sin coeficiente de roce. 
+	5.- El flujo del canal se rige por un perfil logaritmico basado en la ley de Von Kárnmán-Prandtl.
 ```
+Como este modelo busca predecir la trayectoria de varias particulas al mismo tiempo, se requiere de métodos de integración que retornen el comportamiento de estas, en base a las condiciones mencionadas anteriormente, los cuales se ven limitados por la cantidad de particulas, y por el tiempo en que se estudia su monvimiento.
 
-Introducción.
-=============
-
-En este proyecto se busca desarrollar un programa que permita mostrar el movimiento de una partícula a través de un flujo continuo.
-
-La anterior es una tarea de gran importancia y dificultad. Esto debido a que, de poder simular la forma en que se va a comportar una partícula en un momento determinado, se pueden hacer predicciones de su comportamiento a futuro.
-
-Actualmente, el desarrollo de este programa está siendo estudiado por ingenieros, que buscan poder entender el comportamiento que poseen ríos y, de esta forma, construir de manera que la estructura  aguante de la mejor manera posible las interacciones con el río.
-
-
+Primero se utilizó el método de euler, el cual se ve extremadamente limitado por el tiempo de estudio, más que por el número de 
+Para hacer esto se utilizó el método de euler para realizar la integración; este método si bien cumple su objetivo, se ve muy limitado cuando se aumenta mucho el numero de particulas
 Planteamiento.
 ==============
 
