@@ -19,4 +19,7 @@ Por su parte, Odeint, si bien funciona mucho más rápido que euler, es más com
 
 Rendimiento Personal
 ==================
-En este modelo consideramos inicialmente la fuerza peso, la fuerza de boyaje y la de arrastre. Posteriormente, incluimos las fuerzas de masa virtual y la fuerza de empuje. una vez terminado el modelo procedimos a correr el programa en cada computador, en mi caso tengo un MacBook Pro, con un procesador Intel Core i5 e 2.3 GHz, con 8 Gb de RAM y en modelar 3 particulas, en un periodo de 3 segundos, se demora 1.2 segundos. 5 particulas se demora 12.1 segundos, y 10 particulas 125.1 segundos; por lo que puedo concluir que a medida que se aumentan particulas el tiempo de espera aumenta exponencialmente, dando a entender que no es un método muy practico, debido a que en la realidad se trabaja con miles de particulas.
+En este modelo consideramos inicialmente la fuerza peso, la fuerza de boyaje y la de arrastre. Posteriormente, incluimos las fuerzas de masa virtual y la fuerza de empuje. una vez terminado el modelo procedimos a correr el programa en cada computador, en mi caso tengo un MacBook Pro, con un procesador Intel Core i5 e 2.3 GHz, con 8 Gb de RAM y en modelar 3 particulas, en un periodo de 5 segundos, se demora 1.2 segundos. 5 particulas se demora 12.1 segundos, y 10 particulas 125.1 segundos, pero solo evaluando 3 segundos; por lo que puedo concluir que a medida que se aumentan particulas el tiempo de espera aumenta exponencialmente, dando a entender que no es un método muy practico, debido a que en la realidad se trabaja con miles de particulas.
+
+Resultados
+=============

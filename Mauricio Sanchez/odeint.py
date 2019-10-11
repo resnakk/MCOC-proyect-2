@@ -9,7 +9,7 @@ _s = 1.
 _kg = 1.
 #=================================================================Condiciones Iniciales=================================================================
 n_particulas = 10 #Numero de particulas
-a_rio = 40*_mm
+a_rio = 25*_mm
 uf = array([10*_mm/_s,0])
 #=================================================================Datos=================================================================
 d = 2*_mm
@@ -26,7 +26,7 @@ k_log = 0.41 #K para perfil logaritmico
 k_resorte = 1000*0.5*Cd*rho_w*A*norm(uf[0])/(1*_mm) #K para simular el choque 
 #Euler en en x0
 dt = 1e-4*_s  #paso de tiempo
-tmax = 3#tiempo maximo de simulacion
+tmax = 5#tiempo maximo de simulacion
 t = arange(0, tmax, dt)
 W = array([0, -m*g])
 #perfil logaritmico de velocidad en x
@@ -104,4 +104,4 @@ print(v_final.shape)
 x = v_final[:,0::4]
 y = v_final[:,1::4]
 plot(x,y)
-savefig("figura1")
+savefig("10p.png")
