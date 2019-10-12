@@ -24,7 +24,7 @@ En este modelo consideramos inicialmente la fuerza peso, la fuerza de boyaje y l
 
 Resultados
 =============
-![Resultado]("3p.png")
+![Resultado](3p.png)
 
 ![Resultado](5p.png)
 
