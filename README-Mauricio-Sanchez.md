@@ -1,5 +1,6 @@
 #README Mauricio Sánchez
-Itroducción
+
+Introducción
 ==============
 El presente trabajo busca modelar mediante un método lagrangiano el transporte de sedimentos en canales de agua de flujo continuo, no turbulento, principalmente de arenas finas y gravas. Sumado a lo anterior, el segundo foco de este proyecto, es estudiar como influye la decisión del algoritmo a implementar, y como varía su rendimiento a medida que se le exige más al modelo.
 
