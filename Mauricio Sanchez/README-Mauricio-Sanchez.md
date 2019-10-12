@@ -24,11 +24,11 @@ En este modelo consideramos inicialmente la fuerza peso, la fuerza de boyaje y l
 
 Resultados
 =============
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/Mauricio%20Sanchez/blob/master/3p.png)
+![Resultado](3p.png)
 
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/Mauricio%20Sanchez/blob/master/5p.png)
+![Resultado](5p.png)
 
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/Mauricio%20Sanchez/blob/master/10p.png)
+![Resultado](10p.png)
 
 Como se puede ver en las imagenes anteriores, el comportamiento cuando aumentan las particulas, es muy similar al de un modelaminto de pocas particulas. sin embargo, este modelo no es muy representativo de la realidad, ya que son muy pocas particulas las estudiadas.
 
