@@ -38,16 +38,16 @@ Lo anterior se integra a traves de la funcione odeint, la cual es una funcion se
 
 RESULTADOS:
 =============
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/Mauricio%20Sanchez/blob/master/1p.png)
+![Resultado](https://github.com/resnakk/MCOC-proyect-2/tree/master/Mauricio%20Sanchez/1p.png)
 Grafico para 1 particula
 
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/Mauricio%20Sanchez/blob/master/3p.png)
+![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/Mauricio%20Sanchez/3p.png)
 Grafico para 3 particulas
 
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/Mauricio%20Sanchez/blob/master/5p.png)
+![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/Mauricio%20Sanchez/5p.png)
 Grafico para 5 particulas
 
-![Resultado](https://github.com/resnakk/MCOC-proyect-2/Mauricio%20Sanchez/blob/master/10p.png)
+![Resultado](https://github.com/resnakk/MCOC-proyect-2/blob/master/Mauricio%20Sanchez/10p.png)
 Grafico para 10 particulas
 
 
