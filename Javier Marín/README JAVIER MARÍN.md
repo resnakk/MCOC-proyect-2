@@ -45,4 +45,3 @@ En las imagenes se pueden observar como todas las partículas, que parten en lug
 
 Este codigo fué implementado para 3, 5 y 10 partículas, demorandose cada implemtación un tiempo considerablemente diferente. 
 
-En esta entrega se 
