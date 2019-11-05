@@ -25,7 +25,7 @@ Cl = 0.2 #Lift force coefficient
 k_log = 0.41 #K para perfil logaritmico
 k_resorte = 1000*0.5*Cd*rho_w*A*norm(uf[0])/(1*_mm) #K para simular el choque 
 #Euler en en x0
-dt = 1e-3*_s  #paso de tiempo
+dt = 1e-4*_s  #paso de tiempo
 tmax = 3#tiempo maximo de simulacion
 t = arange(0, tmax, dt)
 W = array([0, -m*g])
@@ -52,15 +52,13 @@ def movimiento(vector, t):
 				j += 4
 			else:
 				pos_j = array([vector[j],vector[j + 1]])
-				#vel_j = array([vector[j + 2],vector[j + 3]])
+				vel_j = array([vector[j + 2],vector[j + 3]])
 				dif = sqrt((pos_i[0] - pos_j[0])**2 + (pos_i[1] - pos_j[1])**2)
 				#Choque con Ley de hook
 				if dif < d:
-					rij = pos_j - pos_i
-					i2 = int(i/4)
-					j2 = int(j/4)
-					F_Choque[i2] = k_resorte*dif*rij/norm(rij)
-					F_Choque[j2] = -k_resorte*dif*rij/norm(rij)
+					rij = pos_j - pos_i 
+					F_Choque[i/4] = k_resorte*dif*rij/norm(rij)
+					F_Choque[j/4] = -k_resorte*dif*rij/norm(rij)
 			j += 4
 		#=================================================================condicion de suelo=================================================================
 		F_rebote = array([0,0])
@@ -79,8 +77,7 @@ def movimiento(vector, t):
 		Fl = array([0, (3/4)*alpha*Cl*(norm(0.9*vel_i)**2 - norm(1.1*vel_i)**2)])
 		#Virtual mass force
 		Fvm = array([-alpha*Cvm*vel_i[1]*uf[0]/(Cvm*pos_i[1]),0])
-		i1 = int(i/4)
-		Fi = W + Fd + Fb + F_Choque[i1] + F_rebote + Fl + Fvm
+		Fi = W + Fd + Fb + F_Choque[i/4] + F_rebote + Fl + Fvm
 		#=================================================================retornos=================================================================
 		acc = Fi/m
 		ret.append(vel_i[0])
@@ -103,7 +100,7 @@ for i in range(n_particulas):
 	vector_inicial.append(u_y)
 #=================================================================Integracion con odeint=================================================================	
 v_final = odeint(movimiento,vector_inicial, t)
-print(v_final)
+print(v_final.shape)
 x = v_final[:,0::4]
 y = v_final[:,1::4]
 plot(x,y)
