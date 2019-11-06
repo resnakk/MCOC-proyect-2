@@ -135,7 +135,7 @@ while k < tmax:
 	fout.write("{}".format(k ))
 
 	savetxt(fout, v_total, fmt = '%.24e  ', newline = "")
-	fout.write("\n")
+	fout.write("\n\n")
 	while i < len(vector_inicial) - 8:
 		pos_x1 = vector_inicial[i]
 		pos_y1 = vector_inicial[i + 1]
@@ -163,8 +163,8 @@ while k < tmax:
 		#Posicion futura
 		if len(particulas_chocando) > 4:
 			v_fin = odeint(choque_m_particulas, particulas_chocando, [t_actual , t_actual + dt])
-			for l in range(len(v_fin)):
-				v_total[i + l] = v_fin[l]
+			for l in range(len(indices_p_chocando)):
+				v_total[indices_p_chocando[l]: indices_p_chocando[l] + 4] = v_fin[l,:]
 			i += 4
 		else: 
 			v_fin = odeint(movimiento, p_i, [t_actual, t_actual + dt])
