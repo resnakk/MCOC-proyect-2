@@ -132,7 +132,10 @@ t_actual = 0
 k = 0
 while k < tmax:
 	i = 0
-	fout.write("{} {} \n ".format(k , v_total))
+	fout.write("{}".format(k ))
+
+	savetxt(fout, v_total, fmt = '%.24e  ', newline = "")
+	fout.write("\n")
 	while i < len(vector_inicial) - 8:
 		pos_x1 = vector_inicial[i]
 		pos_y1 = vector_inicial[i + 1]
@@ -165,7 +168,7 @@ while k < tmax:
 			i += 4
 		else: 
 			v_fin = odeint(movimiento, p_i, [t_actual, t_actual + dt])
-			v_total[i:i + len(v_fin) - 1] = v_fin[:]
+			v_total[i:i + len(v_fin) - 1] = v_fin[1, :]
 			i += 4
 	k += dt	
 fout.close()
