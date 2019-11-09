@@ -63,7 +63,7 @@ def choque_m_particulas(vector, t):
 		if pos_y1 <= d/2:
 			rji = array([0, pos_y1 - d/2])
 			F_rebote = -k_resorte*rji
-		print vector	 
+		#print vector	 
 		#=================================================================Velocidad relativa=================================================================
 		vel_i = array([vector[i + 2], vector[i + 3]])
 		urel = uf - vel_i 
@@ -136,7 +136,7 @@ while k < tmax:
 	i = 0
 	z = 0
 	while z in range(len(v_total)):
-		palabra = str(k) + " " + str(v_total[z]) + " " + str(v_total[z + 1])
+		palabra = str(k) + " " + str(v_total[z]) + " " + str(v_total[z + 1]) + "\n"
 		fout.write(palabra)
 		z += 4
 	while i < len(vector_inicial) - 8:
@@ -183,4 +183,6 @@ while k < tmax:
 			i += 4
 	k += dt	
 fout.close()
+
+
 
