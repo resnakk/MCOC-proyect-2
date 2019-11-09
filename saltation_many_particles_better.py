@@ -28,7 +28,7 @@ k_log = 0.41 #K para perfil logaritmico
 k_resorte = 1000*0.5*Cd*rho_w*A*norm(uf[0])/(1*_mm) #K para simular el choque 
 #Euler en en x0
 dt = 1e-4*_s  #paso de tiempo
-tmax = 0.05#tiempo maximo de simulacion
+tmax = 0.005#tiempo maximo de simulacion
 t = arange(0, tmax, dt)
 W = array([0, -m*g])
 #perfil logaritmico de velocidad en x
@@ -73,7 +73,7 @@ def choque_m_particulas(vector, t):
 		R = (rho/rho_w - 1)
 		alpha = (1 + R + Cvm)**-1 
 		Fl = array([0, (3/4)*alpha*Cl*(norm(0.9*vel_i)**2 - norm(1.1*vel_i)**2)])
-		#Virtual mass force
+		#Virtual mass force    
 		Fvm = array([-alpha*Cvm*vel_i[1]*uf[0]/(Cvm*pos_y1),0])
 		Fi = W + Fd + Fb + F_Choque[i/4] + F_rebote + Fl + Fvm
 		#=================================================================retornos=================================================================
@@ -163,12 +163,22 @@ while k < tmax:
 		#Posicion futura
 		if len(particulas_chocando) > 4:
 			v_fin = odeint(choque_m_particulas, particulas_chocando, [t_actual , t_actual + dt])
+			v_total.pop(i)
+			v_total.pop(i)
+			v_total.pop(i)
+			v_total.pop(i)
+
 			for l in range(len(indices_p_chocando)):
-				v_total[indices_p_chocando[l]: indices_p_chocando[l] + 4] = v_fin[l,:]
+				v_total[indices_p_chocando[l]: indices_p_chocando[l] + 4] = v_fin[l]
 			i += 4
-		else: 
+		else:
+		 	print v_total
+			v_total.pop(i)
+			v_total.pop(i)
+			v_total.pop(i)
+			v_total.pop(i)
 			v_fin = odeint(movimiento, p_i, [t_actual, t_actual + dt])
-			v_total[i:i + len(v_fin) - 1] = v_fin[1, :]
+			v_total[i:i + len(v_fin[1]) - 1] = v_fin[1]
 			i += 4
 	k += dt	
 fout.close()
