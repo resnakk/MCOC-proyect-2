@@ -42,7 +42,7 @@ def ux(y0,yi,u0):
 
 def choque_m_particulas(vector, t):
 	F_Choque = [] 
-	for i in range(len(vector)/4):
+	for i in range(int(len(vector)/4)):
 		F_Choque.append([])
 	ret = []
 	i = 0
@@ -163,22 +163,23 @@ while k < tmax:
 		#Posicion futura
 		if len(particulas_chocando) > 4:
 			v_fin = odeint(choque_m_particulas, particulas_chocando, [t_actual , t_actual + dt])
-			v_total.pop(i)
-			v_total.pop(i)
-			v_total.pop(i)
-			v_total.pop(i)
 
 			for l in range(len(indices_p_chocando)):
 				v_total[indices_p_chocando[l]: indices_p_chocando[l] + 4] = v_fin[l]
+				v_total.pop(indices_p_chocando[l] + 4)
 			i += 4
+
 		else:
-		 	print v_total
-			v_total.pop(i)
-			v_total.pop(i)
-			v_total.pop(i)
-			v_total.pop(i)
+		 	#print(len(v_total))
 			v_fin = odeint(movimiento, p_i, [t_actual, t_actual + dt])
-			v_total[i:i + len(v_fin[1]) - 1] = v_fin[1]
+			for m in v_fin[1]:
+				v_total[i] = m
+				
+
+
+
+			
+			
 			i += 4
 	k += dt	
 fout.close()
