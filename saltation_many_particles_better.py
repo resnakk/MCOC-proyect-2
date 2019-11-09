@@ -85,9 +85,9 @@ def choque_m_particulas(vector, t):
 		ret.append(acc[0])
 		ret.append(acc[1])
 		i += 4
-	print("pene ")
-	print(ret)
-	print("cha opene ")
+	
+	
+	
 	return ret
 
 def movimiento(vector, t):
@@ -116,9 +116,6 @@ def movimiento(vector, t):
 	ret.append(vel_i[1])
 	ret.append(acc[0])
 	ret.append(acc[1])
-	print("holi")
-	print(ret)
-	print("chao")
 	return ret
 
 fout = open("results.txt", "w")
@@ -184,21 +181,16 @@ while k < tmax:
 
 		else:
 		 	#print(len(v_total))
-			v_fin = odeint(movimiento, p_i, [t_actual, t_actual + dt])
-			print("ddddd")
-			print(v_fin)
-			print("ddddd")
+			v_fin = odeint(movimiento, p_i, [t_actual, k + dt])
 			u = i
 			for m in v_fin[1]:
 				v_total[u] = m
-				print(u)
+				
 				u+=1
-				print(u)
-				print(m)
+				
+				
 			i += 4
-			print("hoaalefa")
-			print(v_total)
-			print("hoaalefa")
+			
 	k += dt	
 fout.close()
 
