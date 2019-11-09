@@ -53,19 +53,19 @@ def choque_m_particulas(vector, t):
 		while j < len(vector):
 			pos_x2 = vector[j]
 			pos_y2 = vector[j + 1]
-			print pos_x1 - pos_x2,  pos_y1 - pos_y2
-			rij = array([pos_x1 - pos_x2],[pos_y1 - pos_y2]) 
+			kk, kk2 = pos_x1 - pos_x2,  pos_y1 - pos_y2
+			rij = array([kk, kk2])
 			dif = sqrt((pos_x1 - pos_x2)**2 + (pos_y1 - pos_y2)**2)
 			F_Choque[int(i/4)] = k_resorte*dif*rij/norm(rij)
-			print F_Choque
 			F_Choque[int(j/4)] = -k_resorte*dif*rij/norm(rij)
 			j += 4
 		F_rebote = array([0,0])
 		if pos_y1 <= d/2:
 			rji = array([0, pos_y1 - d/2])
-			F_rebote = -k_resorte*rji	 
+			F_rebote = -k_resorte*rji
+		print vector	 
 		#=================================================================Velocidad relativa=================================================================
-		vel_i = array([vector[i + 3], vector[i + 4]])
+		vel_i = array([vector[i + 2], vector[i + 3]])
 		urel = uf - vel_i 
 		norm_urel = norm(urel)
 		#=================================================================Fuerzas sobre la particula=================================================================
@@ -91,7 +91,7 @@ def movimiento(vector, t):
 	ret = []
 	vel_i = array([vector[2], vector[3]])
 	F_rebote = array([0,0])
-	if vector[1] <= d/2:
+	if vector[	1] <= d/2:
 		rji = array([0, vector[1] - d/2])
 		F_rebote = -k_resorte*rji	 
 	#=================================================================Velocidad relativa=================================================================
@@ -167,8 +167,12 @@ while k < tmax:
 			v_fin = odeint(choque_m_particulas, particulas_chocando, [t_actual , t_actual + dt])
 
 			for l in range(len(indices_p_chocando)):
-				v_total[indices_p_chocando[l]: indices_p_chocando[l] + 4] = v_fin[l]
-				v_total.pop(indices_p_chocando[l] + 4)
+				c = 0
+				for m in v_fin[1]:
+					v_total[l + c] = m
+					c += 1 
+				
+				
 			i += 4
 
 		else:
