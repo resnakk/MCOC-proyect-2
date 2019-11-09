@@ -22,7 +22,7 @@ for i in archivo:
     if cont == len(lista):
         cont = 0
 
-
+print(lista[0])
 xlabel("X")
 ylabel("Y")
 title("particle trajectory")
