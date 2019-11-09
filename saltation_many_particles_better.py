@@ -134,10 +134,11 @@ t_actual = 0
 k = 0
 while k < tmax:
 	i = 0
-	fout.write("{}".format(k ))
-
-	savetxt(fout, v_total, fmt = '%.24e  ', newline = "")
-	fout.write("\n\n")
+	z = 0
+	while z in range(len(v_total)):
+		palabra = str(k) + " " + str(v_total[z]) + " " + str(v_total[z + 1])
+		fout.write(palabra)
+		z += 4
 	while i < len(vector_inicial) - 8:
 		pos_x1 = vector_inicial[i]
 		pos_y1 = vector_inicial[i + 1]
@@ -155,7 +156,6 @@ while k < tmax:
 			rij = sqrt((pos_x1 - pos_x2)**2 + (pos_y1 - pos_y2)**2)
 			#Condicion de choque
 			if rij <= 3*d/2:
-				print rij
 				particulas_chocando.append(pos_x2)
 				particulas_chocando.append(pos_y2)
 				particulas_chocando.append(vel_x2)
@@ -180,12 +180,6 @@ while k < tmax:
 			v_fin = odeint(movimiento, p_i, [t_actual, t_actual + dt])
 			for m in v_fin[1]:
 				v_total[i] = m
-				
-
-
-
-			
-			
 			i += 4
 	k += dt	
 fout.close()
