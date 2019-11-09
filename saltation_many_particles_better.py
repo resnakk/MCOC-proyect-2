@@ -53,10 +53,12 @@ def choque_m_particulas(vector, t):
 		while j < len(vector):
 			pos_x2 = vector[j]
 			pos_y2 = vector[j + 1]
-			rij = [pos_x1 - pos_x2, pos_y1 - pos_y2] 
+			print pos_x1 - pos_x2,  pos_y1 - pos_y2
+			rij = array([pos_x1 - pos_x2],[pos_y1 - pos_y2]) 
 			dif = sqrt((pos_x1 - pos_x2)**2 + (pos_y1 - pos_y2)**2)
-			F_Choque[i/4] = k_resorte*dif*rij/norm(rij)
-			F_Choque[j/4] = -k_resorte*dif*rij/norm(rij)
+			F_Choque[int(i/4)] = k_resorte*dif*rij/norm(rij)
+			print F_Choque
+			F_Choque[int(j/4)] = -k_resorte*dif*rij/norm(rij)
 			j += 4
 		F_rebote = array([0,0])
 		if pos_y1 <= d/2:
@@ -75,7 +77,7 @@ def choque_m_particulas(vector, t):
 		Fl = array([0, (3/4)*alpha*Cl*(norm(0.9*vel_i)**2 - norm(1.1*vel_i)**2)])
 		#Virtual mass force    
 		Fvm = array([-alpha*Cvm*vel_i[1]*uf[0]/(Cvm*pos_y1),0])
-		Fi = W + Fd + Fb + F_Choque[i/4] + F_rebote + Fl + Fvm
+		Fi = W + Fd + Fb + F_Choque[int(i/4)] + F_rebote + Fl + Fvm
 		#=================================================================retornos=================================================================
 		acc = Fi/m
 		ret.append(vel_i[0])
