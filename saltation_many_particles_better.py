@@ -142,9 +142,6 @@ while k < tmax:
 		palabra = str(k) + " " + str(v_total[z]) + " " + str(v_total[z + 1]) + "\n"
 		fout.write(palabra)
 		z += 4
-	print("\n vtotaltoaltoal")
-	print(v_total)
-	print("qwertytre")
 	while i < len(vector_inicial) :
 		pos_x1 = vector_inicial[i]
 		pos_y1 = vector_inicial[i + 1]
